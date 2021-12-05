@@ -10,8 +10,12 @@ vents.forEach(([[fromX, fromY], [toX,toY]]) => {
     const [highY, lowY] = getLowAndHigh(fromY, toY)
     const [highX, lowX] = getLowAndHigh(fromX, toX)
     switch (true) {
-        case fromX === toX: for (let i = lowY; i <= highY; i++) increaseCoord(coordsPart1, `${fromX}x${i}`); break;
-        case fromY === toY:  for (let i = lowX; i <= highX; i++) increaseCoord(coordsPart1, `${i}x${toY}`)
+        case fromX === toX:
+            for (let i = lowY; i <= highY; i++)
+                increaseCoord(coordsPart1, `${fromX}x${i}`); break;
+        case fromY === toY:
+            for (let i = lowX; i <= highX; i++)
+                increaseCoord(coordsPart1, `${i}x${toY}`)
     }
 })
 
@@ -25,17 +29,23 @@ vents.forEach(([[fromX, fromY], [toX,toY]]) => {
     const [highY, lowY] = getLowAndHigh(fromY, toY)
     switch (true) {
         case fromX === toX:
-            for (let i = lowY; i <= highY; i++) increaseCoord(coordsPart2, `${fromX}x${i}`); break;
+            for (let i = lowY; i <= highY; i++)
+                increaseCoord(coordsPart2, `${fromX}x${i}`); break;
         case fromY === toY:
-            for (let i = lowX; i <= highX; i++) increaseCoord(coordsPart2, `${i}x${toY}`); break;
+            for (let i = lowX; i <= highX; i++)
+                increaseCoord(coordsPart2, `${i}x${toY}`); break;
         case fromX === lowX && fromY === lowY:
-            for (let i = lowX, j = lowY; i <= highX && j <= highY; i++, j++) increaseCoord(coordsPart2, `${i}x${j}`); break;
+            for (let i = lowX, j = lowY; i <= highX && j <= highY; i++, j++)
+                increaseCoord(coordsPart2, `${i}x${j}`); break;
         case fromX === lowX && fromY === highY:
-            for (let i = lowX, j = highY; i <= highX && j >= lowY; i++, j--) increaseCoord(coordsPart2, `${i}x${j}`); break;
+            for (let i = lowX, j = highY; i <= highX && j >= lowY; i++, j--)
+                increaseCoord(coordsPart2, `${i}x${j}`); break;
         case fromX === highX && fromY === lowY:
-            for (let i = highX, j = lowY; i >= lowX && j <= highY; i--, j++) increaseCoord(coordsPart2, `${i}x${j}`); break;
+            for (let i = highX, j = lowY; i >= lowX && j <= highY; i--, j++)
+                increaseCoord(coordsPart2, `${i}x${j}`); break;
         case fromX === highX && fromY === highY:
-            for (let i = highX, j = highY; i >= lowX && j >= lowY; i--, j--) increaseCoord(coordsPart2, `${i}x${j}`);
+            for (let i = highX, j = highY; i >= lowX && j >= lowY; i--, j--)
+                increaseCoord(coordsPart2, `${i}x${j}`);
     }
 })
 
