@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Visualization</title>
+    <script>const coords = %COORDS%</script>
+</head>
+<body>
+    <canvas width="%SIZE%" height="%SIZE%"></canvas>
+    <script>
+        const colors = ['#096e09','#70c910','#eeff00','#bb8726','#a5511d','#aa0000']
+        const canvas = document.querySelector('canvas')
+        const canvasContext = canvas.getContext('2d')
+        const pixelSize = %PIXELSIZE%;
+        const draw = fields => {
+            const [x,y] = fields.coords.split('x').map(e => +e)
+            canvasContext.fillStyle = colors[fields.value - 1]
+            canvasContext.fillRect(x * pixelSize, y * pixelSize, pixelSize, pixelSize)
+        }
+        Object.entries(coords).forEach(([key,value]) => draw({coords: key, value}))
+    </script>
+</body>
+</html>
